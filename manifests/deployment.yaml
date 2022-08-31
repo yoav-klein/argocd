@@ -17,8 +17,8 @@ spec:
                 - name: demo-app
                   image: yoavklein3/argo-demo:0.1
                   env:
-                      name: 'VERSION'
-                      value: '1.0'
+                     - name: 'VERSION'
+                       value: '1.0'
                   ports:
                       - containerPort: 5000
 
