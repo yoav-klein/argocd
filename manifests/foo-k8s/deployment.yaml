@@ -1,24 +1,24 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-    name: demo-app
+    name: foo
     namespace: argo-demo
 spec:
     replicas: 1
     selector:
         matchLabels:
-            app: demo-app
+            app: foo
     template:
         metadata:
             labels:
-                app: demo-app
+                app: foo
         spec:
             containers:
-                - name: demo-app
-                  image: yoavklein3/argo-demo:0.1
+                - name: foo
+                  image: yoavklein3/foo:1.0
                   env:
-                     - name: 'VERSION'
-                       value: '1.1'
+                     - name: 'ENV'
+                       value: 'dev'
                   ports:
                       - containerPort: 5000
 
