@@ -28,4 +28,8 @@ Just run the `port-forward.sh` script, and you have Argo CD on port 8080.
 ### Login with the CLI
 We login with the `admin` user. Run the `login.sh` command to login.
 
+## Demonstrations
+---
 
+In the `demos` directory we'll have a list of demonstrations.
+We'll be working in the `argo-demo` namespace, so make sure you have it.
