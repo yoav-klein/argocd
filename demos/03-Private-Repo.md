@@ -27,3 +27,9 @@ $ argocd app create foo --repo https://github.com/yoav-klein/private-argo  \
 
 ### Declarative
 This can also be done in a declarative way.
+Repositories are stored as secrets. 
+
+Fill in a Github PAT in the `private-repo.yaml` Secret.
+```
+$ kubectl apply -f private-repo.yaml
+```
