@@ -15,7 +15,7 @@ spec:
         spec:
             containers:
                 - name: foo
-                  image: yoavklein3/foo:2.0
+                  image: yoavklein3/foo:1.0
                   env:
                      - name: 'ENV'
                        value: 'dev'
