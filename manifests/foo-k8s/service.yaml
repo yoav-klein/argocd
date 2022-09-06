@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: foo
+    namespace: argo-demo
+spec:
+    selector:
+        app: foo
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 5000
