@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/yoav-klein/argocd
     targetRevision: HEAD
-    path: manifests/foo-helm
+    path: manifests/helm/foo
     helm:
         valueFiles:
             - values-prod.yaml
