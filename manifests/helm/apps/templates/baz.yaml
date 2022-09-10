@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/yoav-klein/argocd
-    targetRevision: HEAD
+    targetRevision: {{ .Values.targetRevision }}
     path: manifests/helm/baz
     helm:
         valueFiles:
