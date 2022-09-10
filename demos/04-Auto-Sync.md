@@ -60,5 +60,28 @@ Now, delete the Service object in Git, push, and see what happens.
 Don't forget to revert that commit !
 
 
+## Self-Heal
+By default, changes that are made to the live cluster will not trigger an automated sync.
+This can also be configured with the selfHeal option.
+
+### CLI
+```
+$ argocd app set <APPNAME> --self-heal
+```
+
+### Declarative
+```
+spec:
+  syncPolicy:
+    automated:
+      selfHeal: true
+```
+
+See the `self-heal.yaml`
+
+### Test
+Start from an empty `argo-demo` namespace again, and apply the `self-heal.yaml`
+Now, delete the service object in the cluster, and see what happens.
+
 
 
