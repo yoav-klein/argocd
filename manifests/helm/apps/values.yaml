@@ -1,1 +1,1 @@
-env: prod.yaml
+env: values-prod.yaml
