@@ -8,7 +8,7 @@ image:
   repository: yoavklein3/foo
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "3.0"
+  tag: "1.0"
 
 port: 8080
 env: prod
