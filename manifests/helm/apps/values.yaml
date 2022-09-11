@@ -1,2 +1,4 @@
 env: values-prod.yaml
 targetRevision: HEAD
+endpoints:
+    kafka: my.kafka

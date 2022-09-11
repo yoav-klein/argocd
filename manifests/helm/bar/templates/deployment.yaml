@@ -37,6 +37,8 @@ spec:
                 value: "{{ .Values.env }}"
               - name: PORT
                 value: "{{ .Values.port }}"
+              - name: KAFKA_ENDPOINT
+                value: "{{ .Values.endpoints.kafka }}"
           ports:
             - name: http
               containerPort: {{ .Values.port }}

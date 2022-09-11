@@ -12,6 +12,8 @@ image:
 
 port: 8080
 env: dev
+endpoints:
+    kafka: ''
 
 appVersion: "1.0"
 imagePullSecrets: []
