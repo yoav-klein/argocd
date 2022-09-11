@@ -14,7 +14,7 @@ spec:
             - {{ .Values.env }}
         parameters:
             - name: endpoints.kafka
-              value: {{ Values.endpoints.kafka }}
+              value: {{ .Values.endpoints.kafka }}
   destination:
     server: https://kubernetes.default.svc
     namespace: argo-demo
