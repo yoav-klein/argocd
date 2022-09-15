@@ -9,8 +9,8 @@ generator which will produce 3 sets of parameters, and a `List` generator which 
 In this example, we'll deploy the `foo`, `bar` and `baz` applications, for both prod and dev environments.
 For each environment, a different values file will be used, and each environment will be in a different namespace.
 
-For this, we're going to use a matrix of the `git directory` generator and the `git files` generator.
-The `git directory` generator will generate the `foo`, `bar` and `baz` parameters, and the `git files`
+For this, we're going to use a matrix of the Git directory generator and the List generator.
+The Git directory generator will generate the `foo`, `bar` and `baz` parameters, and the List
 generator will generate the namespace name and values file name to be used.
 
 ## Usage
@@ -21,9 +21,9 @@ $ kubectl create ns dev
 $ kubectl create ns prod
 ```
 
-Now, create te ApplicationSet:
+Now, create the ApplicationSet:
 ```
 $ kubectl apply -f application-set.yaml
 ```
 
-
+Now you should have the foo, bar and baz applications in both `dev` and `prod` namespaces.

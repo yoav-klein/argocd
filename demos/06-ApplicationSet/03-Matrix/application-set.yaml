@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    matrix:
+   - matrix:
       generators:
       - git:
          repoURL: https://github.com/yoav-klein/argocd
@@ -14,14 +14,15 @@ spec:
          - path: manifests/helm/*
          - path: manifests/helm/apps
            exclude: true
-      - git:
-          repoURL: https://github.com/yoav-klein/argocd
-          revision: HEAD
-          files:
-          - path: demos/06-ApplicationSet/03-Matrix/configs/*
+      - list:
+          elements:
+          - name: dev
+            valuesFile: values-dev.yaml
+          - name: prod
+            valuesFile: values-prod.yaml
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-{{name}}'
     spec:
       project: "default"
       source:
@@ -33,4 +34,4 @@ spec:
                 - '{{valuesFile}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{name}}'
