@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-microservices-application
+  namespace: argocd
+spec:
+  generators:
+    matrix:
+      generators:
+      - git:
+         repoURL: https://github.com/yoav-klein/argocd
+         revision: HEAD
+         directories:
+         - path: manifests/helm/*
+         - path: manifests/helm/apps
+           exclude: true
+      - git:
+          repoURL: https://github.com/yoav-klein/argocd
+          revision: HEAD
+          files:
+          - path: demos/06-ApplicationSet/03-Matrix/configs/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/yoav-klein/argocd.git
+        targetRevision: HEAD
+        path: '{{path}}'
+        helm:
+            valueFiles:
+                - '{{valuesFile}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'

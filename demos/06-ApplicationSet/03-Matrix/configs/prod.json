@@ -1,0 +1,4 @@
+{
+    "namespace": "prod",
+    "valuesFile": "values-prod.yaml"
+}
