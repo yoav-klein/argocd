@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/yoav-klein/argocd
+      revision: HEAD
+      directories:
+      - path: manifests/helm/*
+      - path: manifests/helm/apps
+        exclude: true
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/yoav-klein/argocd.git
+        targetRevision: HEAD
+        path: '{{path}}'
+        helm:
+            valueFiles:
+                - values-prod.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argo-demo
