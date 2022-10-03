@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/yoav-klein/argocd
     targetRevision: HEAD
-    path: manifests/foo-k8s
+    path: manifests/helm/foo
   destination:
     server: https://kubernetes.default.svc
     namespace: argo-demo
