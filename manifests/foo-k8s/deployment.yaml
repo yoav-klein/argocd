@@ -21,6 +21,8 @@ spec:
                        value: 'dev'
                      - name: 'PORT'
                        value: '5000'
+                     - name: 'KAFKA_ENDPOINT'
+                       value: '1.2.3.4'
                   ports:
                       - containerPort: 5000
 
