@@ -9,6 +9,9 @@ spec:
     repoURL: https://github.com/yoav-klein/argocd
     targetRevision: HEAD
     path: manifests/helm/foo
+    helm:
+        valueFiles:
+            - values-prod.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argo-demo
