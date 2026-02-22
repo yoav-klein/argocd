@@ -12,6 +12,11 @@ spec:
       - path: manifests/helm/*
       - path: manifests/helm/apps
         exclude: true
+  - git:
+      repoURL: https://github.com/yoav-klein/argocd
+      revision: HEAD
+      files:
+        - demos/06-ApplicationSet/02-Git-Generator/versions.yaml
   template:
     metadata:
       name: '{{path.basename}}'
